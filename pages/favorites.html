@@ -1,0 +1,49 @@
+<!-- pages/favorites.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Favoriler</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Favoriler</h1>
+    <div id="movie-list" class="movie-grid"></div>
+  </div>
+
+  <script type="module">
+    import { createMovieCard } from '../js/movieCard.js';
+
+    async function loadFavorites() {
+      const favIds = JSON.parse(localStorage.getItem('favorites') || '[]');
+      // local kopya kullanmak istersen data/movies-2020s.json'i çek
+      const res = await fetch('https://raw.githubusercontent.com/prust/wikipedia-movie-data/refs/heads/master/movies-2020s.json');
+      const movies = await res.json();
+      const favMovies = movies.filter(m => favIds.includes(m.href || m.title));
+      const container = document.getElementById('movie-list');
+      container.innerHTML = '';
+      favMovies.forEach(m => container.insertAdjacentHTML('beforeend', createMovieCard(m, m.href || m.title, true)));
+      // Butonlara tıklama davranışı main.js ile benzer şekilde eklenebilir
+      container.addEventListener('click', (e) => {
+        const favBtn = e.target.closest('.btn-fav');
+        if (favBtn) {
+          const card = favBtn.closest('.movie-card');
+          const id = card.dataset.movieId;
+          const favs = JSON.parse(localStorage.getItem('favorites') || '[]');
+          const idx = favs.indexOf(id);
+          if (idx !== -1) favs.splice(idx,1);
+          localStorage.setItem('favorites', JSON.stringify(favs));
+          card.remove(); // anlık kaldır
+        }
+      });
+    }
+
+    loadFavorites().catch(err => {
+      console.error(err);
+      document.getElementById('movie-list').innerHTML = '<p>Favoriler yüklenemedi.</p>';
+    });
+  </script>
+</body>
+</html>
