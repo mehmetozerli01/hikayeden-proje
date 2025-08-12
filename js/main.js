@@ -85,3 +85,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('movie-list').innerHTML = '<p>Filmler yüklenemedi. Konsolu kontrol et.</p>';
   }
 });
+
+import { loadNavbar } from "./components.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadNavbar();
+});
+
+

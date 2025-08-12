@@ -62,3 +62,127 @@ h1 { margin: 8px 0 16px; }
 .btn-detail { background: #174ea6; color: #fff; }
 .btn-fav { background: transparent; border: 1px solid #ddd; }
 .btn-fav.favorited { background: #ff5a5f; color: #fff; border-color: transparent; }
+
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  z-index: 1000;
+}
+
+.navbar .logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Menü Linkleri */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px; 
+  padding-left: 0; 
+  margin: 0; 
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration:  none !important;
+  border-bottom: none !important;   
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;   
+  cursor: pointer;
+  list-style-type: none;
+  
+
+}
+
+a{text-decoration: none    ;}
+
+
+.nav-links li a:hover {
+  color: #e50914;
+  text-decoration: none !important; 
+  border-bottom: none !important;
+}
+
+/* Arama Kutusu */
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #141414;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-box input {
+  padding: 6px 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  width: 150px;
+}
+
+.search-box button {
+  background-color: #e50914;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+}
+
+.search-box button:hover {
+  background-color: #b00610;
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    gap: 15px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
