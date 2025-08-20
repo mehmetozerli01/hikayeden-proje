@@ -29,3 +29,12 @@ function escapeHtml(str) {
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
 }
+
+
+
+
+
+
+
+
+
