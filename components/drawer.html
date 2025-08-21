@@ -7,22 +7,24 @@
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
-    <div id="drawer" class="drawer">
-        <div class="drawer-header">
-            <h2>Profil</h2>
-            <button id="closeDrawer" class="close-btn"> &times;</button>
-        </div>
-        <ul class="drawer-menu">
-            <li><a href="#">Hesabım</a></li>
-            <li><a href="#">Favorilerim</a></li>
-            <li><a href="#">Ayarlar</a></li>
-            <li><a href="#">Çıkış</a></li>
+<!-- Tek buton (başlangıçta Menü) -->
+<button id="toggleDrawer" class="open-btn">☰ Menü</button>
 
-
-
-        </ul>
+<!-- Drawer -->
+<div id="drawer" class="drawer">
+    <div class="drawer-header">
+        <h2>Profil</h2>
     </div>
-    <div id="overlay" class="overlay"></div>
+    <ul class="drawer-menu">
+        <li><a href="#">Hesabım</a></li>
+        <li><a href="#">Favorilerim</a></li>
+        <li><a href="#">Ayarlar</a></li>
+        <li><a href="#">Çıkış</a></li>
+    </ul>
+</div>
+
+<script src="../js/drawer.js"></script>
+
 
     
 </body>

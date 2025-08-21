@@ -60,7 +60,7 @@ h1 { margin: 8px 0 16px; }
 
 .btn { padding: 8px 10px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.9rem; }
 .btn-detail { background: #174ea6; color: #fff; }
-.btn-fav { background: transparent; border: 1px solid #ddd; }
+.btn-fav { background: white; border: 1px solid #ddd; }
 .btn-fav.favorited { background: #ff5a5f; color: #fff; border-color: transparent; }
 
 
@@ -198,6 +198,7 @@ a{text-decoration: none    ;}
   transition:right 0.3s ease ;
   z-index:1001 ;
   padding:20px ;
+  display: none;
 
 }
 .drawer .open {
@@ -212,13 +213,24 @@ a{text-decoration: none    ;}
   padding-bottom:10px ;
 
 }
+.drawer.open {
+  display: block; /* Açıldığında görünür */
+}
 .drawer-menu {
   list-style:none ;
   padding:0 ;
+  margin-top:20px ;
 
 }
 .drawer-menu li {
   margin:15px 0 ;
+
+}
+
+.drawer-menu li a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
 
 }
 
@@ -231,10 +243,10 @@ a{text-decoration: none    ;}
 .drawer-menu a:hover{
   color: #e50914;
 }
-.close-btn {
+.close-btn  , .open-btn {
   background: none;
   border: none;
-  font-size:24px ;
+  font-size:16px ;
   color:#fff ;
   cursor: pointer;
 

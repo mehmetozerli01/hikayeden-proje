@@ -8,6 +8,67 @@
 </head>
 <body>
 
+
+  <nav class="navbar">
+        <div class="logo">
+            <a href="#/"><img src="https://www.shutterstock.com/image-vector/abstract-cinema-logo-vector-template-260nw-508792729.jpg" alt=""></a>
+        </div>
+        <ul style="display: flex; justify-content: space-between   ; width:50% ; " >
+            <li><a href="#/">Ana Sayfa</a></li>
+            <li class="dropdown">
+                <a href="">Filmler</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Aksiyon</a></li>
+        <li><a href="#">Komedi</a></li>
+        <li><a href="#">Dram</a></li>
+        <li><a href="#">Bilim Kurgu</a></li>
+                </ul>
+            </li>
+
+
+
+            
+
+
+            
+
+
+
+
+
+            <li><a href="#/">Hakkımızda</a></li>
+            <li><a href="#/">İletişim</a></li>
+            <li><a href="favorites.html"> Favoriler  </a></li>
+            <li><button id="toggleDrawer" class="open-btn">☰ Menü</button>
+</li>
+ </ul>
+ <button id="drawerBtn" class="profile-btn">
+    <img src="https://cdn-icons-png.flaticon.com/128/1038/1038100.png" alt="Profil"  width="30">
+ </button>
+
+ <div class="search-box">
+    <input type="text"  placeholder="Film Ara" id="searchInput">
+    <button id="searchBtn"> Ara</button>
+ </div>
+    </nav>
+
+      <div class="slider-container">
+  <h2>Popüler Filmler</h2>
+  <div class="slider" id="movieSlider">
+    <!-- JS ile filmler buraya eklenecek -->
+  </div>
+
+  <!-- Slider Kontrolleri -->
+  <button class="slider-btn prev" id="prevBtn">&#10094;</button>
+  <button class="slider-btn next" id="nextBtn">&#10095;</button>
+</div>
+
+<script type="module" src="../js/slider.js"></script>
+
+
+
+
+
   <div class="container">
     <h1>Popüler Filmler (2020s örnek)</h1>
     <div id="movie-list" class="movie-grid"></div>
@@ -15,7 +76,20 @@
 
   <script type="module" src="../js/main.js"></script>
 
+  <!-- Drawer -->
+<div id="drawer" class="drawer">
+    <div class="drawer-header">
+        <h2>Profil</h2>
+    </div>
+    <ul class="drawer-menu">
+        <li><a href="#">Hesabım</a></li>
+        <li><a href="#">Favorilerim</a></li>
+        <li><a href="#">Ayarlar</a></li>
+        <li><a href="#">Çıkış</a></li>
+    </ul>
+</div>
 
+<script src="../js/drawer.js"></script>
 
 
   
