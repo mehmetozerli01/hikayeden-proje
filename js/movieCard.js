@@ -14,6 +14,7 @@ export function createMovieCard(movie, id, isFavorited = false) {
         <button class="btn btn-fav ${isFavorited ? 'favorited' : ''}">
           ${isFavorited ? '♥ Favorilerden Kaldır' : '♡ Favorilere Ekle'}
         </button>
+        <button class="btn btn-review">İncele</button>
       </div>
     </div>
   </div>

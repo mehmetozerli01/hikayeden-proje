@@ -62,8 +62,8 @@ h1 { margin: 8px 0 16px; }
 .btn-detail { background: #174ea6; color: #fff; }
 .btn-fav { background: white; border: 1px solid #ddd; }
 .btn-fav.favorited { background: #ff5a5f; color: #fff; border-color: transparent; }
-
-
+.btn-review { background: #28a745; color: #fff; border: none; }
+.btn-review:hover { background: #218838; }
 
 .navbar {
   position: fixed;
@@ -459,6 +459,39 @@ a{text-decoration: none    ;}
   width: 40px;
   margin-right: 8px;
   vertical-align: middle;
+}
+
+
+.movie-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.movie-modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #141414;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  color: #fff;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 

@@ -51,13 +51,13 @@ function renderMovies(movies) {
 // Event delegation: detay ve favori butonlarını yönet
 function setupEvents() {
   const container = document.getElementById('movie-list');
+
   container.addEventListener('click', (e) => {
     const favBtn = e.target.closest('.btn-fav');
     if (favBtn) {
       const card = favBtn.closest('.movie-card');
       const id = card.dataset.movieId;
       const nowFavorited = toggleFavorite(id);
-      // sadece tıklanan butonu güncelle (performans için)
       favBtn.classList.toggle('favorited', nowFavorited);
       favBtn.textContent = nowFavorited ? '♥ Favorilerden Kaldır' : '♡ Favorilere Ekle';
       return;
@@ -67,12 +67,50 @@ function setupEvents() {
     if (detailBtn) {
       const card = detailBtn.closest('.movie-card');
       const id = card.dataset.movieId;
-      // Wikipedia slug'ına yönlendir
       const wikiUrl = 'https://en.wikipedia.org/wiki/' + encodeURIComponent(id);
       window.open(wikiUrl, '_blank');
+      return;
+    }
+
+    const reviewBtn = e.target.closest('.btn-review');
+    if (reviewBtn) {
+      const card = reviewBtn.closest('.movie-card');
+      const movieId = card.dataset.movieId;
+      openModal(card, movieId);
     }
   });
 }
+
+function openModal(card, movieId) {
+  const modal = document.getElementById('movie-modal');
+  const modalBody = document.getElementById('modal-body');
+
+  // Kart içindeki bilgileri çekelim
+  const title = card.querySelector('.movie-title').innerText;
+  const poster = card.querySelector('.movie-poster').src;
+  const genres = card.querySelector('.movie-genres').innerText;
+  const cast = card.querySelector('.movie-cast').innerText;
+  const desc = card.querySelector('.movie-desc').innerText;
+
+  modalBody.innerHTML = `
+    <div class="modal-movie">
+      <img src="${poster}" alt="${title}" style="width:200px; float:left; margin-right:20px;">
+      <div>
+        <h2>${title}</h2>
+        <p><strong>Türler:</strong> ${genres}</p>
+        <p>${cast}</p>
+        <p>${desc}</p>
+      </div>
+    </div>
+  `;
+
+  modal.classList.remove('hidden');
+
+  // Kapatma butonu
+  const closeBtn = modal.querySelector('.modal-close');
+  closeBtn.onclick = () => modal.classList.add('hidden');
+}
+
 
 document.addEventListener('DOMContentLoaded', async () => {
   setupEvents();
