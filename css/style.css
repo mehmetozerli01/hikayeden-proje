@@ -313,6 +313,8 @@ a{text-decoration: none    ;}
   position: relative;
   margin: 20px;
   overflow: hidden;
+  background-color: #000;
+  color: #fff;
 }
 
 .slider-container h2 {
@@ -634,6 +636,89 @@ header {
       border-radius: 8px;
       margin-top:30px ;
     }
+
+
+    .hero {
+      position: relative;
+      height:80vh ;
+      background: url("https://www.themoviedb.org/t/p/original/5YZbUmjbMa3ClvSW1Wj3D6XGolb.jpg") no-repeat center center/contain;
+     
+background-color: #000; /* boş kalan alan için istersen */
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #fff;
+      padding-left:60px ;
+
+    }
+
+    .hero::after {
+      content:"" ;
+      position: absolute;
+      top: 0;left: 0;
+      width: 100%;
+      height:100% ;
+      background: rgba(0,0,0,0.6);
+
+    }
+
+    .hero-content {
+      position: relative;
+      max-width:600px ;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom:20px ;
+      color: #fff;
+
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom:30px ;
+      color: #ddd;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      padding:12px 24px;
+      border-radius:5px;
+      font-size:16px ;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3;
+
+    }
+
+    .btn-play {
+      background: #e50914;
+      color: #fff;
+    }
+
+    .btn-play:hover{
+      background: #b20710;
+    }
+
+    .btn-info{
+      background:rgba(109,109,110,0.7) ;
+      color: #fff;
+    }
+
+    .btn-info:hover{
+      background: rgba(109,109,110,0.9);
+      
+
+    }
+
+
+    
 
 
 
