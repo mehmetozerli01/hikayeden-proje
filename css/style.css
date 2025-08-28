@@ -16,7 +16,7 @@ h1 { margin: 8px 0 16px; }
 
 .movie-grid, #movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 18px;
   padding: 0;
   margin: 0;
@@ -47,7 +47,7 @@ h1 { margin: 8px 0 16px; }
   flex: 1;
 }
 
-.movie-title { font-size: 1.05rem; margin: 0; }
+.movie-title { font-size: 1.05rem; margin: 0;  color: white;  }
 .movie-genres, .movie-cast { font-size: 0.85rem; color: #555; margin: 0; padding-left: 10px; }
 .movie-desc { font-size: 0.9rem; color: #333; margin: 0; line-height: 1.2; }
 
@@ -74,7 +74,7 @@ h1 { margin: 8px 0 16px; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 40px;
+  padding: 10px 2px;
   z-index: 1000;
 }
 
@@ -688,18 +688,23 @@ background-color: #000; /* boş kalan alan için istersen */
     }
 
     .btn {
-      padding:12px 24px;
+      padding:12px 4x;
       border-radius:5px;
       font-size:16px ;
       text-decoration: none;
       font-weight: bold;
       transition: 0.3;
+      
 
     }
+    
+     
 
     .btn-play {
       background: #e50914;
       color: #fff;
+      font-size: 24px;
+      padding: 12px 24px;
     }
 
     .btn-play:hover{

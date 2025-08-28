@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+      <nav class="navbar">
+        <div class="logo">
+            <a href="#/"><img src="https://www.shutterstock.com/image-vector/abstract-cinema-logo-vector-template-260nw-508792729.jpg" alt=""></a>
+        </div>
+        <ul style="display: flex; justify-content: space-between   ; width:50% ; " >
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="dropdown">
+                <a href="">Filmler</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Aksiyon</a></li>
+        <li><a href="#">Komedi</a></li>
+        <li><a href="#">Dram</a></li>
+        <li><a href="#">Bilim Kurgu</a></li>
+                </ul>
+            </li>
+
+
+
+            
+
+
+            
+
+
+
+
+
+            <li><a href="about.html">Hakkımızda</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="favorites.html"> Favoriler  </a></li>
+
+            
+
+            
+            
+
+ </ul>
+ <button id="drawerBtn" class="profile-btn">
+    <img src="https://cdn-icons-png.flaticon.com/128/1038/1038100.png" alt="Profil"  width="30">
+ </button>
+
+ <div class="search-box">
+    <input type="text"  placeholder="Film Ara" id="searchInput">
+    <button id="searchBtn"> Ara</button>
+ </div>
+
+ <button id="toggleDrawer" class="open-btn">☰ Menü</button>
+    </nav>
+
+    <header>
+    <h1>Film Dünyası</h1>
+  </header>
+
+  
+
+  <main>
+    <section class="movies">
+      <h2>Popüler Filmler</h2>
+      <div id="movie-list" class="movie-grid"></div>
+    </section>
+  </main>
+
+  <div id="movie-modal" class="movie-modal hidden">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+
+  
+
+  <script type="module" src="../js/main.js"></script>
+
+</body>
+</html>

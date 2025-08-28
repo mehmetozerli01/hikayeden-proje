@@ -1,8 +1,11 @@
 // js/main.js
 import { createMovieCard } from './movieCard.js';
+import { loadNavbar } from "./components.js";
 
 const MOVIES_URL = 'https://raw.githubusercontent.com/prust/wikipedia-movie-data/refs/heads/master/movies-2020s.json';
 // Eğer fetch CORS hatası verirse: '../data/movies-2020s.json' (local kopya) kullan.
+
+let allMovies = []; // tüm filmleri globalde saklayacağız
 
 function getId(movie) {
   return movie.href || movie.title;
@@ -17,9 +20,6 @@ function getFavorites() {
 }
 function setFavorites(arr) {
   localStorage.setItem('favorites', JSON.stringify(arr));
-}
-function isFavorited(id) {
-  return getFavorites().includes(id);
 }
 function toggleFavorite(id) {
   const favs = getFavorites();
@@ -79,13 +79,22 @@ function setupEvents() {
       openModal(card, movieId);
     }
   });
+
+  // 🔎 Arama kutusu olayı
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      const filtered = allMovies.filter(m => m.title.toLowerCase().includes(query));
+      renderMovies(filtered.slice(0, 50)); // ilk 50 tanesi
+    });
+  }
 }
 
 function openModal(card, movieId) {
   const modal = document.getElementById('movie-modal');
   const modalBody = document.getElementById('modal-body');
 
-  // Kart içindeki bilgileri çekelim
   const title = card.querySelector('.movie-title').innerText;
   const poster = card.querySelector('.movie-poster').src;
   const genres = card.querySelector('.movie-genres').innerText;
@@ -106,27 +115,18 @@ function openModal(card, movieId) {
 
   modal.classList.remove('hidden');
 
-  // Kapatma butonu
   const closeBtn = modal.querySelector('.modal-close');
   closeBtn.onclick = () => modal.classList.add('hidden');
 }
 
-
 document.addEventListener('DOMContentLoaded', async () => {
+  loadNavbar();
   setupEvents();
   try {
-    const movies = await fetchMovies();
-    // büyük JSON -> başlangıçta ilk 50 filmi göster (isteğe göre artır)
-    renderMovies(movies.slice(0, 50));
+    allMovies = await fetchMovies();
+    renderMovies(allMovies.slice(0, 50));
   } catch (err) {
     console.error(err);
     document.getElementById('movie-list').innerHTML = '<p>Filmler yüklenemedi. Konsolu kontrol et.</p>';
   }
 });
-
-import { loadNavbar } from "./components.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadNavbar();
-});
-
