@@ -67,8 +67,8 @@ h1 { margin: 8px 0 16px; }
 
 .btn { padding: 8px 10px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.9rem; }
 .btn-detail { background: #174ea6; color: #fff; }
-.btn-fav { background: white; border: 1px solid #ddd; }
-.btn-fav.favorited { background: #ff5a5f; color: #fff; border-color: transparent; }
+.btn-fav { background: white; border: 1px solid #ddd; padding: 4px 8px; }
+.btn-fav.favorited { background: #ff5a5f; color: #fff; border-color: transparent;font-size: 12px; padding: 4px 8px; }
 .btn-review { background: #28a745; color: #fff; border: none; }
 .btn-review:hover { background: #218838; }
 
@@ -86,7 +86,7 @@ h1 { margin: 8px 0 16px; }
 }
 
 .navbar .logo img {
-  height: 40px;
+  height: 50px;
   width: auto;
   object-fit: contain;
 }
@@ -539,7 +539,7 @@ header {
     .about-container p {
       margin-bottom: 20px;
       font-size: 20px;
-      color: #632020;
+      color: #faf6f6;
     }
 
     .team {
@@ -583,7 +583,7 @@ header {
 
     .contact-info p {
       margin:8px 0;
-      color:#500a0a;
+      color:#f3e8e8;
 
     }
 
@@ -650,7 +650,7 @@ header {
       height:80vh ;
       background: url("https://www.themoviedb.org/t/p/original/5YZbUmjbMa3ClvSW1Wj3D6XGolb.jpg") no-repeat center center/contain;
      
-background-color: #000; /* boş kalan alan için istersen */
+background-color: #0f0e0e2b; /* boş kalan alan için istersen */
 
       display: flex;
       align-items: center;
@@ -729,8 +729,7 @@ background-color: #000; /* boş kalan alan için istersen */
 
     }
 
-   
-.chatbox {
+    .chatbox {
   position: fixed;
   bottom: 80px;
   right: 20px;
@@ -810,5 +809,98 @@ background-color: #000; /* boş kalan alan için istersen */
   cursor: pointer;
   z-index: 1001;
 }
+
+
+
+/* --- TOP 10 BÖLÜMÜ --- */
+.top10-section {
+  padding: 2rem;
+  background-color: #141414;
+  color: #fff;
+}
+
+.top10-section .section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Liste yatay kaydırılabilir */
+.top10-list {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.top10-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.top10-list::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* --- Film Kartı --- */
+.movie-card {
+  position: relative;
+  min-width: 180px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #222;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+}
+
+.movie-card img {
+  width: 100%;
+  height:-webkit-fill-available;
+  border-radius: 8px;
+  display: block;
+}
+
+/* --- Netflix tarzı numara --- */
+.movie-card .rank {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-size: 5rem;          /* numara büyük */
+  font-weight: 900;
+  color: #000;              /* içi siyah */
+  -webkit-text-stroke: 2px red; /* kırmızı kenarlık Netflix tarzı */
+  z-index: 2;
+}
+
+/* Film ismi */
+.movie-title {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
 
 

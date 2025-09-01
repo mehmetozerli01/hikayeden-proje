@@ -216,8 +216,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+const top10List = document.getElementById('top10-list');
 
+async function renderTop10() {
+  const movies = await fetchMovies();
+  const top10 = movies.slice(0, 10); // ilk 10 film
 
+  top10.forEach((movie, index) => {
+    const movieCard = document.createElement('div');
+    movieCard.classList.add('movie-card');
+    movieCard.innerHTML = `
+      <div class="rank">${index + 1}</div>
+      <img src="${movie.thumbnail}" alt="${movie.title}">
+      <p class="movie-title">${movie.title}</p>
+    `;
+    top10List.appendChild(movieCard);
+  });
+}
 
-
-
+renderTop10();
